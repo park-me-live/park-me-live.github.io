@@ -1,10 +1,16 @@
 html {
-  overflow: hidden;
   height: 100%;
 
-  --main-background-color: #f5f5f5;
-  --footer-background-color: #2d2d2d;
-  --mail-to-link-color: #ffdf00;
+  font-family: "ff-tisa-web-pro", "serif";
+
+  --endeavour: #0064a2;
+  --matisse: #1f699f;
+  --orient: #00517b;
+  --boston-blue: #3778b7;
+  --danube: #74acd6;
+  --spindle: #b4d2ee;
+  --white: #ffffff;
+  --firefly: #0b212c;
 }
 
 body {
@@ -12,35 +18,212 @@ body {
   height: 100%;
 }
 
-.wrapper {
+.park-me-app {
+  display: block;
+  height: 100%;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+.loading {
+  position: fixed;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   height: 100%;
+  width: 100%;
+  background: var(--endeavour);
+  transition: opacity 1s ease-in-out;
 }
 
-.main-container {
-  flex: auto;
-  background: var(--main-background-color);
+.loading:hover {
+  opacity: 0;
 }
 
-.under-construction {
-  position: absolute;
-  right: -125px;
-  top: 60px;
-  transform: rotate(45deg);
+.loading--logo-container {
+  display: block;
+  width: 175px;
 }
 
-.footer-container {
-  background: var(--footer-background-color);
+.logo {
+  display: block;
 }
 
-.footer-container--element {
+.loading--text-container {
   display: flex;
-  justify-content: center;
-  margin: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
-.mail-to-link {
+.loading--title {
+  margin: 0;
+  font-size: 55px;
+  color: var(--white);
+}
+
+.loading--subtitle {
+  margin: 0;
+  font-size: 21px;
+  color: var(--spindle);
+}
+
+.screen-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  scroll-snap-align: start;
+}
+
+.screen-container_matisse {
+  background: var(--matisse);
+}
+
+.screen-container_firefly {
+  background: var(--firefly);
+}
+
+.screen-container_white {
+  background: var(--white);
+}
+
+.screen-container--video {
+  display: block;
+  padding-bottom: 90px;
+}
+
+.parking-video {
+  display: block;
+}
+
+.screen-container--text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 80%;
+}
+
+.screen-container--title {
+  margin: 0;
+  font-size: 27px;
+  text-align: center;
+}
+
+.screen-container--title_white {
+  color: var(--white);
+}
+
+.screen-container--title_endeavour {
+  color: var(--endeavour);
+}
+
+.screen-container--subtitle {
+  margin: 0;
+  font-size: 21px;
+  text-align: center;
+}
+
+.screen-container--subtitle_spindle {
+  color: var(--spindle);
+}
+
+.screen-container--subtitle_orient {
+  color: var(--orient);
+}
+
+.screen-container--subtitle_danube {
+  color: var(--danube);
+}
+
+.screen-container--action {
+  height: 60px;
+  width: 270px;
+  display: block;
+}
+
+.button {
+  width: 100%;
+  height: 100%;
+  font-family: "ff-tisa-web-pro", "serif";
+  font-size: 27px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button:focus {
+  outline: 0;
+  border: 1px dashed var(--danube);
+}
+
+.button_light {
+  color: var(--orient);
+  background: var(--white);
+  box-shadow: 0px 3px 6px 0px rgba(0, 66, 120, 1);
+}
+
+.button_dark {
+  color: var(--white);
+  background: var(--boston-blue);
+  box-shadow: 0px 3px 6px 0px rgba(180, 210, 238, 1);
+}
+
+.screen-container--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  flex: auto;
+  width: 100%;
+}
+
+.screen-container--email {
+  margin-bottom: 30px;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.screen-container--email > .divider {
+  margin-top: 15px;
+}
+
+.email-input {
+  border: none;
+  border-bottom: 1px dashed transparent;
+  color: var(--endeavour);
+  width: 100%;
+  font-size: 18px;
+}
+
+.email-input:focus {
+  outline: 0;
+  border-bottom: 1px dashed var(--danube);
+}
+
+.email-input::placeholder {
+  color: var(--danube);
+}
+
+.divider {
+  display: block;
+  border-bottom: 2px solid var(--boston-blue);
+}
+
+.screen-container--footer {
+  padding: 20px;
+  font-family: "fira-sans", "sans-serif";
+}
+
+.email-link {
   text-decoration: none;
-  color: var(--mail-to-link-color);
+  color: var(--orient);
+  cursor: pointer;
+}
+
+.email-link:focus {
+  outline: 0;
+  border: 1px dashed var(--danube);
 }
