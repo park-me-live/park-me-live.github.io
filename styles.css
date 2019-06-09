@@ -194,7 +194,7 @@ body {
   border: none;
   border-bottom: 1px dashed transparent;
   color: var(--endeavour);
-  width: 100vw;
+  width: 100%;
   font-size: 18px;
 }
 
