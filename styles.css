@@ -1,7 +1,7 @@
 html {
   height: calc(var(--vh, 1vh) * 100);
 
-  font-family: "ff-tisa-web-pro", "serif";
+  font-family: ff-tisa-sans-web-pro, sans-serif;
 
   --endeavour: #0064a2;
   --matisse: #1f699f;
@@ -34,7 +34,8 @@ body {
   height: calc(var(--vh, 1vh) * 100);
   width: 100%;
   background: var(--endeavour);
-  transition: opacity 1s ease-in-out;
+  opacity: 100%;
+  transition: opacity 2s ease-in-out;
 }
 
 .loading:hover {
@@ -66,6 +67,7 @@ body {
   margin: 0;
   font-size: 21px;
   color: var(--spindle);
+  font-style: italic;
 }
 
 .screen-container {
@@ -123,6 +125,7 @@ body {
   margin: 0;
   font-size: 21px;
   text-align: center;
+  font-style: italic;
 }
 
 .screen-container--subtitle_spindle {
@@ -145,13 +148,13 @@ body {
 
 .button {
   width: 100%;
-  height: 100%;
-  font-family: "ff-tisa-web-pro", "serif";
-  font-size: 27px;
+  height: 100%;  
+  font-size: 24px;
   font-weight: 600;
   border: 1px solid transparent;
   border-radius: 10px;
   cursor: pointer;
+  font-style: italic;
 }
 
 .button:focus {
@@ -160,13 +163,13 @@ body {
 }
 
 .button_light {
-  color: var(--orient);
+  color: var(--matisse);
   background: var(--white);
   box-shadow: 0px 3px 6px 0px rgba(0, 66, 120, 1);
 }
 
 .button_dark {
-  color: var(--white);
+  color: var(--spindle);
   background: var(--boston-blue);
   box-shadow: 0px 3px 6px 0px rgba(180, 210, 238, 1);
 }
@@ -194,7 +197,9 @@ body {
   border: none;
   border-bottom: 1px dashed transparent;
   color: var(--endeavour);
-  width: 100%;
+  width: 100%;  
+  font-style: italic;
+  text-align: center;
   font-size: 18px;
 }
 
