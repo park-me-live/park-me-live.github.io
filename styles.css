@@ -19,7 +19,7 @@ body {
 }
 
 section {
-  height: 100%;
+  height: var(--sectionHeight);
 }
 
 .park-me-app {
