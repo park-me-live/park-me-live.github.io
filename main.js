@@ -26,10 +26,11 @@
       document.documentElement.style.setProperty("--vh", `${vh}px`);
     }); */
 
-  window.onresize = function () {
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
+  } else {
+    document.documentElement.style.setProperty("--sectionHeight", `100%`);
   }
-  window.onresize();
 
   const subscribeBtn = document.querySelector("#subscribe-button");
   subscribeBtn.addEventListener("click", _ => {
