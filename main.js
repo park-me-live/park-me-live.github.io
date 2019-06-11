@@ -18,16 +18,31 @@
     });
   });
 
-  /*   const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-  
-    window.addEventListener("resize", () => {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    }); */
-
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
+
+    let isScrolling;
+    let scrollTimeout
+
+    window.addEventListener('scroll', function () {
+      if (isScrolling) return;
+
+      window.clearTimeout(scrollTimeout);
+
+      scrollTimeout = setTimeout(function () {
+        document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
+        const currentScrollPercent = (document.body.scrollTop / document.body.scrollHeight);
+        const currentScreen = currentScrollPercent < 0.17 ? 0 : (currentScrollPercent < 0.51 ? 1 : 2);
+
+        this.isScrolling = true;
+        window.scrollTo({
+          top: window.innerHeight * currentScreen,
+          behavior: "smooth"
+        });
+        this.isScrolling = false;
+      }, 100);
+    }, false);
+
   } else {
     document.documentElement.style.setProperty("--sectionHeight", `100%`);
   }
