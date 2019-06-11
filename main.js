@@ -68,6 +68,17 @@
       const interval = setInterval(() => {
         intervalCount += 100;
         if (document.body.scrollTop === this.oldScroll || intervalCount > 2000) {
+          if (this.oldHeight !== window.innerHeight) {
+            window.scrollTo({
+              top: (this.oldScroll / this.oldHeight) * window.innerHeight,
+              behavior: "instant"
+            })
+            
+            document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
+            this.oldHeight = window.innerHeight;
+            this.oldScroll = (this.oldScroll / this.oldHeight) * window.innerHeight;
+          }
+          
           this.isScrolling = false;
           clearInterval(interval);
         }
