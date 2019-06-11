@@ -40,13 +40,22 @@
   // Handling scroll behaviour on mobile devices
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
-  
+
     document.body.ontouchend = () => {
       if (window.innerHeight < 600) return;
 
       document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
 
       const currentScroll = document.body.scrollTop;
+
+      if (Math.abs(currentScroll - this.oldScroll) < 50) {
+        this.oldScroll = (this.oldScroll / this.oldHeight) * window.innerHeight;
+        this.oldHeight = window.innerHeight;
+
+        window.scrollTo(0, this.oldScroll);
+        return;
+      }
+
       const direction = currentScroll < this.oldScroll ? -1 : 1;
       let currentScreen = Math.round((this.oldScroll + direction * this.oldHeight) / this.oldHeight);
       currentScreen = currentScreen > 0 ? currentScreen : 0;
@@ -55,7 +64,7 @@
       window.scrollTo({
         top: window.innerHeight * currentScreen,
         behavior: "smooth"
-      });       
+      });
 
       this.oldScroll = window.innerHeight * currentScreen;
       this.oldHeight = window.innerHeight;
@@ -70,7 +79,7 @@
             document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
             this.oldScroll = (this.oldScroll / this.oldHeight) * window.innerHeight;
             this.oldHeight = window.innerHeight;
-  
+
             window.scrollTo(0, this.oldScroll);
           }
           clearInterval(this.scrollInterval);
