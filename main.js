@@ -28,12 +28,15 @@
 
     this.oldHeight = window.innerHeight;
     this.oldScroll = document.body.scrollHeight - this.oldHeight;
+    this.isScrolling = false;
 
+    let intervalCount = 0;
     const interval = setInterval(() => {
-      if (document.body.scrollTop === this.oldScroll) {
+      intervalCount += 100;
+      if (document.body.scrollTop === this.oldScroll || intervalCount > 2000) {
         this.isScrolling = false;
         clearInterval(interval);
-      }        
+      }
     }, 100);
   });
 
@@ -42,11 +45,9 @@
     document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
 
     window.addEventListener('scroll', function () {
-      if (this.isScrolling) return;
+      if (this.isScrolling || window.innerHeight < 600) return;
 
       document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
-
-      if (window.innerHeight < 600) return;
 
       const currentScroll = document.body.scrollTop;
       const direction = currentScroll < this.oldScroll ? -1 : 1;
@@ -58,16 +59,18 @@
       window.scrollTo({
         top: window.innerHeight * currentScreen,
         behavior: "smooth"
-      });
+      });       
 
       this.oldScroll = window.innerHeight * currentScreen;
       this.oldHeight = window.innerHeight;
 
+      let intervalCount = 0;
       const interval = setInterval(() => {
-        if (document.body.scrollTop === this.oldScroll) {
+        intervalCount += 100;
+        if (document.body.scrollTop === this.oldScroll || intervalCount > 2000) {
           this.isScrolling = false;
           clearInterval(interval);
-        }        
+        }
       }, 100);
 
     }, false);
@@ -92,3 +95,4 @@
     });
   });
 })();
+
