@@ -29,7 +29,7 @@ body {
   background: var(--endeavour);
   opacity: 100%;
   transition: opacity 2s ease-in-out;
-  min-height: 450px;
+  min-height: 500px;
   height: var(--sectionHeight);
   transition: height 1s ease-out;
 }
@@ -71,7 +71,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  min-height: 450px;
+  min-height: 500px;
   height: var(--sectionHeight);
   transition: height 1s ease-out;
 }
@@ -90,7 +90,7 @@ body {
 
 .screen-container--video {
   display: block;
-  padding-bottom: 90px;
+  padding-bottom: 70px;
 }
 
 .parking-video {
