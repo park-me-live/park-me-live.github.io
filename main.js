@@ -48,7 +48,7 @@
 
       const currentScroll = document.body.scrollTop;
 
-      if (Math.abs(currentScroll - this.oldScroll) < 50) {
+      if (Math.abs(currentScroll - this.oldScroll) < 25) {
         this.oldScroll = (this.oldScroll / this.oldHeight) * window.innerHeight;
         this.oldHeight = window.innerHeight;
 
