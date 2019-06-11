@@ -29,7 +29,7 @@ body {
   background: var(--endeavour);
   opacity: 100%;
   transition: opacity 2s ease-in-out;
-  min-height: 600px;
+  min-height: 450px;
   height: var(--sectionHeight);
   transition: height 1s ease-out;
 }
@@ -71,7 +71,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  min-height: 600px;
+  min-height: 450px;
   height: var(--sectionHeight);
   transition: height 1s ease-out;
 }
