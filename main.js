@@ -30,6 +30,8 @@
       window.clearTimeout(scrollTimeout);
 
       scrollTimeout = setTimeout(function () {
+        if (window.innerHeight < 600) return;
+
         document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
         const currentScrollPercent = (document.body.scrollTop / document.body.scrollHeight);
         const currentScreen = currentScrollPercent < 0.17 ? 0 : (currentScrollPercent < 0.51 ? 1 : 2);

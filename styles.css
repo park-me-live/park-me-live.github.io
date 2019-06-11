@@ -17,11 +17,11 @@ body {
 
 section {
   height: var(--sectionHeight);
+  min-height: 600px;
 }
 
 .park-me-app {
   display: block;
-  scroll-snap-type: y mandatory;
   overflow-y: scroll;
 }
 
@@ -76,11 +76,6 @@ section {
   align-items: center;
 }
 
-@media only screen and (max-width: 600px) {
-  .screen-container {
-    scroll-snap-align: end;
-  }
-}
 
 .screen-container_matisse {
   background: var(--matisse);
