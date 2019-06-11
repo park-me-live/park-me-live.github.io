@@ -17,8 +17,6 @@ body {
 
 .park-me-app {
   display: block;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
 }
 
 .loading {
