@@ -104,7 +104,8 @@
       Subject: "New Subscriber",
       Body: emailInputRef.value
     }).then(() => {
-      console.log("success");
+      document.querySelector("#subscribe-action-wrapper").style.display = "none";
+      document.querySelector("#subscribe-success-wrapper").style.display = "flex";
     });
   });
 })();

@@ -236,3 +236,12 @@ section {
   outline: 0;
   border: 1px dashed var(--danube);
 }
+
+.screen-container--action-success {
+  display: none;
+  flex-direction: column;
+}
+
+.screen-container--action-success img {
+  margin-bottom: 30px;
+}

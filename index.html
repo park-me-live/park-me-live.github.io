@@ -1,117 +1,93 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    >
-    <meta
-      http-equiv="X-UA-Compatible"
-      content="ie=edge"
-    >
-    <title>ParkME.live</title>
-    <link rel="stylesheet" href="https://use.typekit.net/blq4rqu.css">
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <main class="park-me-app">
-      <section id="loading" class="loading">
-        <div class="loading--logo-container">
-          <div class="logo">
-            <img
-              src="assets/logo.svg"
-              alt="logo"
-            >
-          </div>
-        </div>
-        <div class="loading--text-container">
-          <h1 class="loading--title">Park me</h1>
-          <h2 class="loading--subtitle">свободные парковки онлайн</h2>
-        </div>
-      </section>
 
-      <section class="screen-container screen-container_matisse">
-        <div class="screen-container--video">
-          <div class="parking-video">
-            <video
-              height="300"
-              width="360"
-              autoplay
-              muted
-              loop
-            >
-              <source
-                src="assets/cars.mp4"
-                type="video/mp4"
-              >
-              Your browser does not support the video tag.
-            </video>
-          </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ParkME.live</title>
+  <link rel="stylesheet" href="https://use.typekit.net/blq4rqu.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="park-me-app">
+    <section id="loading" class="loading">
+      <div class="loading--logo-container">
+        <div class="logo">
+          <img src="assets/logo.svg" alt="logo">
         </div>
+      </div>
+      <div class="loading--text-container">
+        <h1 class="loading--title">Park me</h1>
+        <h2 class="loading--subtitle">свободные парковки онлайн</h2>
+      </div>
+    </section>
+
+    <section class="screen-container screen-container_matisse">
+      <div class="screen-container--video">
+        <div class="parking-video">
+          <video height="300" width="360" autoplay muted loop>
+            <source src="assets/cars.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <div class="screen-container--text">
+        <h1 class="screen-container--title screen-container--title_white">Не ищи свободное место</h1>
+        <h2 class="screen-container--subtitle screen-container--subtitle_spindle">мы найдем его за тебя</h2>
+      </div>
+      <div class="screen-container--action">
+        <button id="become-first" class="button button_light">Стать первым</button>
+      </div>
+    </section>
+
+    <section class="screen-container screen-container_firefly">
+      <div class="screen-container--video">
+        <div class="map-video">
+          <video height="300" width="360" autoplay muted loop>
+            <source src="assets/map.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <div class="screen-container--text">
+        <h1 class="screen-container--title screen-container--title_endeavour">Парковки, Камеры и Нейронные сети</h1>
+        <h2 class="screen-container--subtitle screen-container--subtitle_orient">Алгоритмы анализируют видео <br>с камер
+          на парковках и выдают результат на интерактивной карте</h2>
+      </div>
+    </section>
+
+    <section id="subscribe-screen" class="screen-container screen-container_white">
+      <div class="screen-container--wrapper">
         <div class="screen-container--text">
-          <h1 class="screen-container--title screen-container--title_white">Не ищи свободное место</h1>
-          <h2 class="screen-container--subtitle screen-container--subtitle_spindle">мы найдем его за тебя</h2>
+          <h1 class="screen-container--title screen-container--title_endeavour">Проект еще в разработке</h1>
+          <h2 class="screen-container--subtitle screen-container--subtitle_danube">Стань первым, <br> кому мы сообщим о
+            запуске</h2>
         </div>
-        <div class="screen-container--action">
-          <button id="become-first" class="button button_light">Стать первым</button>
-        </div>
-      </section>
 
-      <section class="screen-container screen-container_firefly">
-        <div class="screen-container--video">
-          <div class="map-video">
-            <video
-              height="300"
-              width="360"
-              autoplay
-              muted
-              loop
-            >
-              <source
-                src="assets/map.mp4"
-                type="video/mp4"
-              >
-              Your browser does not support the video tag.
-            </video>
+        <div id="subscribe-action-wrapper" class="screen-container--action">
+          <div class="screen-container--email">
+            <input id="email-input" class="email-input" type="email" spellcheck="false"
+              placeholder="Оставьте ваш email">
+            <div class="divider"></div>
           </div>
+          <button id="subscribe-button" class="button button_dark">Подписаться</button>
         </div>
-        <div class="screen-container--text">
-          <h1 class="screen-container--title screen-container--title_endeavour">Парковки, Камеры и Нейронные сети</h1>
-          <h2 class="screen-container--subtitle screen-container--subtitle_orient">Алгоритмы анализируют видео <br>с камер на парковках и выдают результат на интерактивной карте</h2>
-        </div>
-      </section>
 
-      <section id="subscribe-screen" class="screen-container screen-container_white">
-        <div class="screen-container--wrapper">
-          <div class="screen-container--text">
-            <h1 class="screen-container--title screen-container--title_endeavour">Проект еще в разработке</h1>
-            <h2 class="screen-container--subtitle screen-container--subtitle_danube">Стань первым, <br> кому мы сообщим о запуске</h2>
-          </div>
-          <div id="subscribe-action-container" class="screen-container--action">
-            <div class="screen-container--email">
-              <input
-                id="email-input"
-                class="email-input"
-                type="email"
-                spellcheck="false"
-                placeholder="Оставьте ваш email"
-              >
-              <div class="divider"></div>
-            </div>
-            <button id="subscribe-button" class="button button_dark">Подписаться</button>
-          </div>
+        <div id="subscribe-success-wrapper" class="screen-container--action-success">
+          <img src="assets/check.svg" alt="success">
+          <h1 class="screen-container--title screen-container--title_endeavour">Дело за нами</h1>
         </div>
-        <footer class="screen-container--footer">
-          <a
-            class="email-link"
-            href="mailto:parkmelive@gmail.com"
-          >
-            parkmelive@gmail.com
-          </a>
-        </footer>
-      </section>
-    </main>
-    <script src="main.js"></script>
-    <script src="smtp.js"></script>
-  </body>
+      </div>
+      <footer class="screen-container--footer">
+        <a class="email-link" href="mailto:parkmelive@gmail.com">
+          parkmelive@gmail.com
+        </a>
+      </footer>
+    </section>
+  </main>
+  <script src="main.js"></script>
+  <script src="smtp.js"></script>
+</body>
+
 </html>
