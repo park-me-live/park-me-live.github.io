@@ -43,7 +43,7 @@
   
     document.body.ontouchend = () => {
       if (window.innerHeight < 600) return;
-      
+
       document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
 
       const currentScroll = document.body.scrollTop;
@@ -66,7 +66,7 @@
       this.scrollInterval = setInterval(() => {
         count += 50;
         if ((document.body.scrollTop === this.oldScroll) || count > 1000) {
-          if (this.oldHeight !== window.innerHeight) {
+          if ((this.oldHeight !== window.innerHeight) && (window.innerHeight >= 600)) {
             document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
             this.oldScroll = (this.oldScroll / this.oldHeight) * window.innerHeight;
             this.oldHeight = window.innerHeight;
