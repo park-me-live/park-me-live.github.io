@@ -31,6 +31,7 @@ body {
   transition: opacity 2s ease-in-out;
   min-height: 600px;
   height: var(--sectionHeight);
+  transition: height 1s ease-out;
 }
 
 .loading:hover {
@@ -72,6 +73,7 @@ body {
   align-items: center;
   min-height: 600px;
   height: var(--sectionHeight);
+  transition: height 1s ease-out;
 }
 
 .screen-container_matisse {
