@@ -43,9 +43,9 @@
   // Handling scroll behaviour on mobile devices
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
-
-    window.addEventListener('scroll', function () {
-      if (this.isScrolling || window.innerHeight < 600) return;
+  
+    document.body.ontouchend = () => {
+      if (this.isScrolling || (window.innerHeight < 600)) return;
 
       document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
 
@@ -55,7 +55,6 @@
       currentScreen = currentScreen > 0 ? currentScreen : 0;
 
       this.isScrolling = true;
-
       window.scrollTo({
         top: window.innerHeight * currentScreen,
         behavior: "smooth"
@@ -67,24 +66,13 @@
       let intervalCount = 0;
       const interval = setInterval(() => {
         intervalCount += 100;
-        if (document.body.scrollTop === this.oldScroll || intervalCount > 2000) {
-          if (this.oldHeight !== window.innerHeight) {
-            window.scrollTo({
-              top: (this.oldScroll / this.oldHeight) * window.innerHeight,
-              behavior: "instant"
-            })
-            
-            document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
-            this.oldHeight = window.innerHeight;
-            this.oldScroll = (this.oldScroll / this.oldHeight) * window.innerHeight;
-          }
-          
+        if (document.body.scrollTop === this.oldScroll || intervalCount > 1000) {
           this.isScrolling = false;
           clearInterval(interval);
         }
       }, 100);
 
-    }, false);
+    };
 
   } else {
     document.documentElement.style.setProperty("--sectionHeight", `100%`);
