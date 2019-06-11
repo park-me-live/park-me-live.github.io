@@ -26,9 +26,15 @@
       inline: "nearest"
     });
 
-    setTimeout(() => {        
-      this.isScrolling = false;
-    }, 1000);
+    this.oldHeight = window.innerHeight;
+    this.oldScroll = document.body.scrollHeight - this.oldHeight;
+
+    const interval = setInterval(() => {
+      if (document.body.scrollTop === this.oldScroll) {
+        this.isScrolling = false;
+        clearInterval(interval);
+      }        
+    }, 100);
   });
 
   // Handling scroll behaviour on mobile devices
@@ -57,9 +63,12 @@
       this.oldScroll = window.innerHeight * currentScreen;
       this.oldHeight = window.innerHeight;
 
-      setTimeout(() => {        
-        this.isScrolling = false;
-      }, 500);
+      const interval = setInterval(() => {
+        if (document.body.scrollTop === this.oldScroll) {
+          this.isScrolling = false;
+          clearInterval(interval);
+        }        
+      }, 100);
 
     }, false);
 
