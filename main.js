@@ -1,7 +1,7 @@
 (function () {
-  this.isScrolling = false;
   this.oldScroll = 0;
   this.oldHeight = window.innerHeight;
+  this.scrollInterval;
 
   // Handling loading screen
   const loadingRef = document.querySelector("#loading");
@@ -28,14 +28,11 @@
 
     this.oldHeight = window.innerHeight;
     this.oldScroll = document.body.scrollHeight - this.oldHeight;
-    this.isScrolling = false;
 
-    let intervalCount = 0;
-    const interval = setInterval(() => {
-      intervalCount += 100;
-      if (document.body.scrollTop === this.oldScroll || intervalCount > 2000) {
-        this.isScrolling = false;
-        clearInterval(interval);
+    clearInterval(this.scrollInterval);
+    this.scrollInterval = setInterval(() => {
+      if (document.body.scrollTop === this.oldScroll) {
+        clearInterval(this.scrollInterval);
       }
     }, 100);
   });
@@ -45,8 +42,8 @@
     document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
   
     document.body.ontouchend = () => {
-      if (this.isScrolling || (window.innerHeight < 600)) return;
-
+      if (window.innerHeight < 600) return;
+      
       document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
 
       const currentScroll = document.body.scrollTop;
@@ -63,14 +60,22 @@
       this.oldScroll = window.innerHeight * currentScreen;
       this.oldHeight = window.innerHeight;
 
-      let intervalCount = 0;
-      const interval = setInterval(() => {
-        intervalCount += 100;
-        if (document.body.scrollTop === this.oldScroll || intervalCount > 1000) {
-          this.isScrolling = false;
-          clearInterval(interval);
+      clearInterval(this.scrollInterval);
+
+      let count = 0;
+      this.scrollInterval = setInterval(() => {
+        count += 50;
+        if ((document.body.scrollTop === this.oldScroll) || count > 1000) {
+          if (this.oldHeight !== window.innerHeight) {
+            document.documentElement.style.setProperty("--sectionHeight", `${window.innerHeight}px`);
+            this.oldScroll = (this.oldScroll / this.oldHeight) * window.innerHeight;
+            this.oldHeight = window.innerHeight;
+  
+            window.scrollTo(0, this.oldScroll);
+          }
+          clearInterval(this.scrollInterval);
         }
-      }, 100);
+      }, 50);
 
     };
 
